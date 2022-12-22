@@ -1,4 +1,4 @@
-#include "shell.c"
+#include "shell.h"
 
 /**
  * main - main point
@@ -18,7 +18,7 @@ int main(int ac, char **av)
 
 	if (ac == 2)
 	{
-		fd = open (av[1], O_RDONLY);
+		fd = open(av[1], O_RDONLY);
 		if (fd == -1)
 		{
 			if (errno == EACCES)
@@ -34,7 +34,7 @@ int main(int ac, char **av)
 			}
 			return (EXIT_FAILURE);
 		}
-		info->readfd = fd
+		info->readfd = fd;
 	}
 	populate_env_list(info);
 	read_history(info);

@@ -22,7 +22,7 @@ int _erratoi(char *s)
 				return (-1);
 		}
 		else
-			retrurn (-1);
+			return (-1);
 	}
 	return (result);
 }
@@ -30,7 +30,7 @@ int _erratoi(char *s)
 /**
  * print_error - prints an error
  * @info: the parameter
- * @str: string containing specified error
+ * @estr: string containing specified error
  * Return: 0 if no numbers in string
  */
 void print_error(info_t *info, char *estr)

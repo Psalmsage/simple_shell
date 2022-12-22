@@ -15,7 +15,7 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 	if (!*len) /* if nothing left */
 	{
 		free(*buf);
-		*buf = 	NULL;
+		*buf = NULL;
 		signal(SIGINT, sigintHandler);
 		r = getline(buf, &len_p, stdin);
 
@@ -73,12 +73,10 @@ ssize_t get_input(info_t *info)
 			i = len = 0;
 			info->cmd_buf_type = CMD_NORM;
 		}
-
 		*buf_p = p;
 		return (_strlen(p));
 	}
-
-	*buf-p = buf;
+	*buf_p = buf;
 	return (r);
 }
 
@@ -102,15 +100,15 @@ ssize_t read_buf(info_t *info, char *buf, size_t *i)
 }
 
 /**
- * _getline - gets the next line of input 
+ * _getline - gets the next line of input
  * @info: parameter struct
  * @ptr: adddress of pointer
  * @length: size of preallocated ptr
- * Return: s
+ * Return: for all
  */
 int _getline(info_t *info, char **ptr, size_t *length)
 {
-	static char buf[READ_BUF-SIZE];
+	static char buf[READ_BUF_SIZE];
 	static size_t i, len;
 	size_t k;
 	ssize_t r = 0, s = 0;
@@ -121,14 +119,14 @@ int _getline(info_t *info, char **ptr, size_t *length)
 		s = *length;
 	if (i == len)
 		i = len = 0;
-	
+
 	r = read_buf(info, buf, &len);
 	if (r == -1 || (r == 0 && len == 0))
 		return (-1);
 
-	c = _ strchr(buf + i, '\n');
+	c = _strchr(buf + i, '\n');
 	k = c ? 1 + (unsigned int)(c - buf) : len;
-	new - p = _realloc(p, s, s ? s + k : k + 1);
+	new_p = _realloc(p, s, s ? s + k : k + 1);
 	if (!new_p)
 		return (p ? free(p), -1 : -1);
 	if (s)
@@ -147,11 +145,11 @@ int _getline(info_t *info, char **ptr, size_t *length)
 }
 
 /**
- * signHandler - blocks ctrl_c
+ * signintHandler - blocks ctrl_c
  * @sig_num: the signal no
  * Return: void
  */
-void signHandler(__attribute__((unsused))int sig_num)
+void signintHandler(__attribute__((unused))int sig_num)
 {
 	_puts("\n");
 	_puts("$ ");

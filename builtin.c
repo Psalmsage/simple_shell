@@ -11,7 +11,7 @@ int _myexit(info_t *info)
 
 	if (info->argv[1]) /*if the exit arg */
 	{
-		exitcheck = _erratori(info->argv[1]);
+		exitcheck = _erratoi(info->argv[1]);
 		if (exitcheck == -1)
 		{
 			info->status = 2;
@@ -38,7 +38,7 @@ int _mycd(info_t *info)
 	int chdir_ret;
 
 	s = getcwd(buffer, 1024);
-	if (ls)
+	if (!s)
 		_puts("TODO: >>getcwd failure emsg here<<\n");
 	if (!info->argv[1])
 	{
