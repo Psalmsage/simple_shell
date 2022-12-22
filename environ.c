@@ -24,10 +24,10 @@ char *_getenv(info_t *info, const char *name)
 
 	while (node)
 	{
-		p - starts_with(node->str, name);
+		p = starts_with(node->str, name);
 		if (p && *p)
 			return (p);
-		node - node->next;
+		node = node->next;
 	}
 	return (NULL);
 }
